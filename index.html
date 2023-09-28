@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Path Finder</title>
+  <link rel="stylesheet" href="style.css">
+
+
+  <script src="mazeAlgorithms.js" defer></script>
+  <script src="animate.js" defer></script>
+  <script src="pathAlgorithms.js" defer></script>
+  <script src="priorityque.js" defer></script>
+  <script src="hexagon.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <div id="loading" class="loading">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
+
+
+  <ul class="navigation">
+    <li><a href="#" id="startbutton" class="stateOne" onclick="Start_Botton(this)">Start </a>
+    </li>
+    <li>
+      <a href="#">
+        Algorithms
+      </a>
+      <ul class="dropdown-menu" style="list-style: none;">
+        <li id="startButtonDijkstra" onclick="setAlgorithm(0)"><a href="#">Dijkstra's Algorithm</a></li>
+        <li id="startButtonAStar" onclick="setAlgorithm(1)"><a href="#">A* Search</a></li>
+        <li id="startButtonGreedy" onclick="setAlgorithm(2)"><a href="#">Greedy Best-first Search</a></li>
+        <li id="startButtonBFS" onclick="setAlgorithm(3)"><a href="#">Breadth-first Search</a></li>
+        <li id="startButtonDFS" onclick="setAlgorithm(4)"><a href=" #">Depth-first Search</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">
+        Mazes
+      </a>
+      <ul class="dropdown-menu" style="list-style: none;">
+        <!-- <li id="startButtonCreateMazeTwo"><a href="#">Recursive Division</a></li> -->
+        <li id="startButtonCreateMazeThree" onclick="SparseDepthFirstSearchMaze(graph)">
+          <a href="#">Sparse Random DFS</a>
+        </li>
+        <li id="startButtonCreateMazeFour" onclick="randomDepthFirstSearchMaze(graph)">
+          <a href="#">Random DFS</a>
+        </li>
+        <li id="startButtonCreateMazeOne" onclick="basicRandomMaze(graph)" class="navbar-inverse navbar-nav"><a
+            href="#">Basic
+            Random Maze</a></li>
+      </ul>
+    </li>
+    <li><a href="#" onclick="clearALL(graph)">Clear</a></li>
+    <li>
+      <span id="selectedALGtext">Selected: Dijkstra's</span>
+    </li>
+
+    <li>
+      <span id="pathlength">Path Length: 0</span>
+    </li>
+    <!-- <li><input type="checkbox" onclick="showDistence(this)" id="html" name="fav_language" value="HTML">
+      <label for="html">Show Distances</label><br>
+    </li> -->
+  </ul>
+  <div class="main">
+    <div id="screen">
+
+    </div>
+  </div>
+  <div class="controls">
+    <div class="halfcircle">
+      <!-- <a href="#">Toggle</a> -->
+    </div>
+    <ul>
+      <li>
+        <div class="controlHolder">
+          <a href="#">Toggle</a>
+          <div id="toggleSelected" class="hexagon obsticle"></div>
+        </div>
+        <ul class="dropdown-menu" style="list-style: none;">
+          <!-- <li id="startButtonCreateMazeTwo"><a href="#">Recursive Division</a></li> -->
+          <li onclick='changeToggle(this,"start")'>
+            <div class="controlHolder">
+              <a href="#">Start</a>
+              <div class="hexagon start"></div>
+            </div>
+          </li>
+          <li onclick='changeToggle(this,"end")'>
+            <div class=" controlHolder">
+              <a href="#">End</a>
+              <div class="hexagon end"></div>
+            </div>
+          </li>
+          <li onclick='changeToggle(this,"obsticle")'>
+            <div class="controlHolder">
+              <a href="#">Obsticle</a>
+              <div class="hexagon obsticle"></div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="spacer" href="#"></a>
+      </li>
+      <li>
+        <a onclick='offtouch=false; drawtouch=true;' href="#">Draw</a>
+      </li>
+      <li>
+        <a onclick=' offtouch=false; drawtouch=false;' href="#">Erase</a>
+      </li>
+      <li>
+        <a onclick=' offtouch=true;' href="#">Off</a>
+      </li>
+    </ul>
+  </div>
+
+
+</body>
+
+</html>
